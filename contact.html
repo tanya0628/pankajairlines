@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Pankaj Airlines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a1628;
+      --accent: #1e90ff;
+      --accent-dark: #0066cc;
+      --gold: #c9a227;
+      --light: #f8fafc;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Work Sans', sans-serif; color: var(--text); line-height: 1.6; background: #fff; }
+    h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+    .top-bar { background: var(--primary); color: #fff; font-size: 0.85rem; padding: 9px 0; }
+    .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .top-bar a { color: #fff; margin-left: 18px; transition: opacity 0.2s; }
+    .top-bar a:hover { opacity: 0.8; }
+
+    header { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+    .nav-wrap { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--primary); }
+    .logo span { color: var(--accent); }
+    nav ul { display: flex; list-style: none; gap: 30px; }
+    nav a { font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.6rem; cursor: pointer; }
+
+    .page-hero { background: linear-gradient(135deg, #0a1628 0%, #13294b 100%); color: #fff; padding: 80px 0 60px; text-align: center; }
+    .page-hero h1 { font-size: 2.8rem; margin-bottom: 12px; }
+    .page-hero p { opacity: 0.85; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 15px 30px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: all 0.25s; border: none; cursor: pointer; }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: #111; }
+    .btn-gold:hover { background: #b8921f; }
+
+    section { padding: 80px 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+    .contact-card { background: #f8fafc; border-radius: 16px; padding: 36px; }
+    .contact-card h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 20px; font-family: 'Work Sans', sans-serif; font-weight: 600; }
+    .contact-item { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+    .contact-item .icon { width: 44px; height: 44px; background: #e0f2fe; color: var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact-item strong { display: block; color: var(--primary); margin-bottom: 2px; }
+    .contact-item p { color: var(--muted); font-size: 0.95rem; }
+    .cta-box { background: linear-gradient(135deg, #0a1628, #1a3a5c); color: #fff; border-radius: 16px; padding: 40px; text-align: center; }
+    .cta-box h3 { font-size: 1.6rem; margin-bottom: 12px; }
+    .cta-box p { opacity: 0.88; margin-bottom: 24px; }
+
+    footer { background: var(--primary); color: #cbd5e1; padding: 55px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-col h4 { color: #fff; font-size: 1.15rem; margin-bottom: 16px; font-family: 'Work Sans', sans-serif; font-weight: 600; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a:hover { color: var(--accent); }
+    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav ul { display: none; }
+      .menu-toggle { display: block; }
+      nav ul.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 22px; box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+    }
+    @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } .page-hero h1 { font-size: 2.1rem; } }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <a href="tel:+918285620650">+91-82856-20650</a>
+        <a href="mailto:Pankajairlines12@gmail.com">Pankajairlines12@gmail.com</a>
+      </div>
+      <div>
+        <a href="https://wa.me/918285620650" target="_blank">WhatsApp</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Pankaj <span>Airlines</span></a>
+      <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</button>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="our-jet.html">Our Jet</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Call or WhatsApp us directly. We respond quickly.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="icon">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <p><a href="tel:+918285620650">+91-82856-20650</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:Pankajairlines12@gmail.com">Pankajairlines12@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">💬</div>
+            <div>
+              <strong>WhatsApp</strong>
+              <p><a href="https://wa.me/918285620650" target="_blank">Chat on WhatsApp</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">📍</div>
+            <div>
+              <strong>Registered Address</strong>
+              <p>Office No-597, 5th Floor, Plot No-6<br>Office Block, Vegas Mall, Sector-14<br>Dwarka, Delhi, India – 110075</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">🏢</div>
+            <div>
+              <strong>Company</strong>
+              <p>Pankaj Airlines Private Limited<br>CIN: U62200DL2022PTC404239</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <h3>Ready to Fly Private?</h3>
+          <p>Call us now for a quick quote or book your flight online.</p>
+          <a href="tel:+918285620650" class="btn btn-gold" style="margin-bottom:14px;">Call Now → +91-82856-20650</a>
+          <br>
+          <a href="booking.html" class="btn" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);">Book Online →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Pankaj Airlines</h4>
+          <p style="margin-bottom:14px;opacity:0.85;line-height:1.6;">Making private jet travel accessible for everyday families in India. One jet. Honest prices. Complete privacy.</p>
+          <p style="font-size:0.85rem;opacity:0.7;">CIN: U62200DL2022PTC404239</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="our-jet.html">Our Jet</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>+91-82856-20650</p>
+          <p>Pankajairlines12@gmail.com</p>
+          <p>Office No-597, 5th Floor, Plot No-6<br>Office Block, Vegas Mall, Sector-14<br>Dwarka, Delhi – 110075</p>
+        </div>
+      </div>
+      <div class="copyright">© Pankaj Airlines Private Limited 2026. All Rights Reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
